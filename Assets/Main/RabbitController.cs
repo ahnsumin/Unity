@@ -2,10 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class castleController : MonoBehaviour
+public class RabbitController : MonoBehaviour
 {
     Rigidbody2D rigid2D;
-    GameObject castle;
     float walkForce = 30.0f;
     float maxWalkSpeed = 5.0f;
 
@@ -13,17 +12,11 @@ public class castleController : MonoBehaviour
     void Start()
     {
         this.rigid2D = GetComponent<Rigidbody2D>();
-        //this.star = GameObject.Find("star");
     }
 
     // Update is called once per frame
     void Update()
     {
-        /*if (Input.GetKeyDown(KeyCode.Space) && this.rigid2D.velocity.y == 0)
-        {
-            this.rigid2D.AddForce(transform.up * this.moveForce);
-        }*/
-
         int key = 0;
         if (Input.GetKey(KeyCode.RightArrow)) key = 1;
         if (Input.GetKey(KeyCode.LeftArrow)) key = -1;
@@ -35,9 +28,21 @@ public class castleController : MonoBehaviour
             this.rigid2D.AddForce(transform.right * key * this.walkForce);
         }
 
-        if(key != 0)
+        if(transform.position.x < -13)
         {
-            transform.localScale = new Vector3(key, 1, 1);
+            transform.position = new Vector3(-5, -3, 0);
+            key = 0;
+        }
+
+        if (transform.position.x > 55)
+        {
+            transform.position = new Vector3(50, -3, 0);
+            key = 0;
+        }
+
+        if (key != 0)
+        {
+            transform.localScale = new Vector3(key * 0.26058f, 0.26058f, 1);
         }
     }
 }

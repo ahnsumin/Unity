@@ -5,7 +5,7 @@ using UnityEngine;
 public class StarGenerator : MonoBehaviour
 {
     public GameObject starPrefab;
-    float span = 3.0f;
+    float span = 0;
     float delta = 0;
 
     // Start is called before the first frame update
@@ -22,9 +22,9 @@ public class StarGenerator : MonoBehaviour
         {
             this.delta = 0;
             GameObject go = Instantiate(starPrefab) as GameObject;
-            int px = Random.Range(-12, 12);
             int py = Random.Range(2, 5);
-            go.transform.position = new Vector3(px, py, 0);
+            go.transform.position = new Vector3(-12, py, 0);
+            this.span = Random.Range(1.0f, 3.0f);
         }
     }
 }

@@ -3,7 +3,11 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - star
+  - gunman1
+  - gunman2
+  - ending
   layers:
   - Default
   - TransparentFX

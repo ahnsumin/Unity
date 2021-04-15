@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/ShootinScene.unity
     guid: 9291fd9fb56a2014c9721e069c5d89ba
+  - enabled: 1
+    path: Assets/RoadScene.unity
+    guid: 9e4f17239c662b94fbada0e9d748b12f
   m_configObjects: {}
