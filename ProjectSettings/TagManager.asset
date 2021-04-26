@@ -8,6 +8,15 @@ TagManager:
   - gunman1
   - gunman2
   - ending
+  - ground
+  - water
+  - carrot
+  - egg
+  - meat
+  - photato
+  - onion
+  - chili
+  - counter
   layers:
   - Default
   - TransparentFX
