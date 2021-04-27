@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class RandomRouletteController : MonoBehaviour
 {
@@ -48,36 +49,42 @@ public class RandomRouletteController : MonoBehaviour
                 Debug.Log("실패");
                 this.stop = false;
                 this.first = false;
+                SceneManager.LoadScene("GameOver");
             }
             else if (this.degree >= 30 && this.degree < 90)
             {
                 Debug.Log("성공");
                 this.stop = false;
                 this.first = false;
+                SceneManager.LoadScene("GameEnding");
             }
             else if (this.degree >= 90 && this.degree < 150)
             {
                 Debug.Log("실패");
                 this.stop = false;
                 this.first = false;
+                SceneManager.LoadScene("GameOver");
             }
             else if (this.degree >= 150 && this.degree < 210)
             {
                 Debug.Log("성공");
                 this.stop = false;
                 this.first = false;
+                SceneManager.LoadScene("GameEnding");
             }
             else if (this.degree >= 210 && this.degree < 270)
             {
                 Debug.Log("실패");
                 this.stop = false;
                 this.first = false;
+                SceneManager.LoadScene("GameOver");
             }
             else if (this.degree >= 270 && this.degree < 330)
             {
                 Debug.Log("성공");
                 this.stop = false;
                 this.first = false;
+                SceneManager.LoadScene("GameEnding");
             }
         }
     }

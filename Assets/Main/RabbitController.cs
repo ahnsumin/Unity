@@ -15,20 +15,20 @@ public class RabbitController : MonoBehaviour
     bool photatoScene = false;
     bool onionScene = false;
     bool chiliScene = false;
-    //GameObject roulette;
+    GameObject roulette;
     string[] shop = new string[3];
 
     // Start is called before the first frame update
     void Start()
     {
         this.rigid2D = GetComponent<Rigidbody2D>();
-        /*this.roulette = GameObject.Find("roulette");
+        this.roulette = GameObject.Find("roulette");
         for (int i = 0; i < this.shop.Length; i++)
         {
             this.shop[i] = this.roulette.GetComponent<RouletteController>().shop[i];
             Debug.Log(this.shop[i]);
         }
-        Destroy(this.roulette);*/
+        Destroy(this.roulette);
     }
 
     // Update is called once per frame
@@ -70,19 +70,19 @@ public class RabbitController : MonoBehaviour
             SceneManager.LoadScene("BottleOpening");
         } else if(Input.GetKeyDown(KeyCode.Return) && this.eggScene == true)
         {
-            SceneManager.LoadScene("ShootinScene");
+            SceneManager.LoadScene("ShootingOpening");
         } else if (Input.GetKeyDown(KeyCode.Return) && this.meatScene == true)
         {
-            SceneManager.LoadScene("RandomScene");
+            SceneManager.LoadScene("RandomOpening");
         } else if (Input.GetKeyDown(KeyCode.Return) && this.photatoScene == true)
         {
-            SceneManager.LoadScene("RunningScene");
+            SceneManager.LoadScene("RunningOpening");
         } else if (Input.GetKeyDown(KeyCode.Return) && this.onionScene == true)
         {
-            SceneManager.LoadScene("RoadScene");
+            SceneManager.LoadScene("RoadOpening");
         } else if (Input.GetKeyDown(KeyCode.Return) && this.chiliScene == true)
         {
-            SceneManager.LoadScene("UpDownScene");
+            SceneManager.LoadScene("UpDownOpening");
         }
     }
 
@@ -140,7 +140,7 @@ public class RabbitController : MonoBehaviour
             this.chiliScene = false;
         } else if (other.gameObject.tag == "onion")
         {
-            Debug.Log("감자");
+            Debug.Log("양파");
             this.counter = false;
             this.carrotScene = false;
             this.eggScene = false;

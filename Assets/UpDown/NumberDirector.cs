@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class NumberDirector : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class NumberDirector : MonoBehaviour
     int count;
     bool isCount;
     bool isCorrect;
+    bool isWrong;
 
     // Start is called before the first frame update
     void Start()
@@ -22,6 +24,7 @@ public class NumberDirector : MonoBehaviour
         this.count = 7;
         this.isCount = false;
         this.isCorrect = false;
+        this.isWrong = false;
     }
 
     // Update is called once per frame
@@ -70,7 +73,8 @@ public class NumberDirector : MonoBehaviour
         } else if(count == 0 && this.isCount == true)
         {
             this.number.GetComponent<Text>().text = "숫자는 " + this.randNum.ToString("F0") + "입니다.";
-            this.countText.GetComponent<Text>().text = "다음에 다시 도전하세요!";
+            this.countText.GetComponent<Text>().text = "화면을 마우스 왼쪽 버튼으로 클릭하면 넘어갑니다.";
+            this.isWrong = true;
         }
 
         if(this.isCorrect == true)
@@ -78,6 +82,14 @@ public class NumberDirector : MonoBehaviour
             if (Input.GetMouseButtonDown(0))
             {
                 Debug.Log("다음 화면");
+                SceneManager.LoadScene("GameEnding");
+            }
+        }
+        else if(this.isWrong == true)
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                SceneManager.LoadScene("GameOver");
             }
         }
     }

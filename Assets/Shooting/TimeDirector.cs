@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class TimeDirector : MonoBehaviour
 {
@@ -25,10 +26,10 @@ public class TimeDirector : MonoBehaviour
 
         if (LimitTime <= 0 && filled == false)
         {
-            Debug.Log("게임오버");
+            SceneManager.LoadScene("GameOver");
         } else if(LimitTime > 0 && filled == true)
         {
-            Debug.Log("게임성공");
+            SceneManager.LoadScene("GameEnding");
         }
     }
 }

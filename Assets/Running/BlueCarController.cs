@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BlueCarController : MonoBehaviour
 {
@@ -20,5 +21,6 @@ public class BlueCarController : MonoBehaviour
     {
         Debug.Log("Lose");
         Destroy(gameObject);
+        SceneManager.LoadScene("GameOver");
     }
 }

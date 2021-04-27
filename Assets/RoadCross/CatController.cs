@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CatController : MonoBehaviour
 {
@@ -49,13 +50,12 @@ public class CatController : MonoBehaviour
         if (other.gameObject.tag == "gunman1" || other.gameObject.tag == "gunman2")
         {
             Debug.Log("게임오버");
-
-            Destroy(other.gameObject);
-            //Destroy(gameObject);
+            SceneManager.LoadScene("GameOver");
         }
         if(other.gameObject.tag == "ending")
         {
             Debug.Log("성공");
+            SceneManager.LoadScene("GameEnding");
         }
     }
 }

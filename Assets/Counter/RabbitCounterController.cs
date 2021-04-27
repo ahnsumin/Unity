@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class RabbitCounterController : MonoBehaviour
 {
@@ -54,5 +55,6 @@ public class RabbitCounterController : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log("°è»ê");
+        SceneManager.LoadScene("Ending");
     }
 }

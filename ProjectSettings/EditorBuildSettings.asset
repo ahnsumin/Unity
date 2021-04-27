@@ -9,39 +9,63 @@ EditorBuildSettings:
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
+    path: Assets/Opening.unity
+    guid: 53578db17b7d1aa4c88fb7bbbe9e1e9a
+  - enabled: 1
+    path: Assets/RouletteScene.unity
+    guid: c2d953cef6cd9a245a76b1ba454da9e7
+  - enabled: 1
+    path: Assets/MainScene.unity
+    guid: af88c028a0c6fd3408ecaa2ab8a1731f
+  - enabled: 1
     path: Assets/BottleOpening.unity
     guid: f858ac33a8636cc419cbb568ce1b78ed
   - enabled: 1
     path: Assets/BottleScene.unity
     guid: 95b47cd4c8f14b24c8404a63cac5504a
   - enabled: 1
-    path: Assets/MainScene.unity
-    guid: af88c028a0c6fd3408ecaa2ab8a1731f
+    path: Assets/ShootingOpening.unity
+    guid: eeb7e9f655b2c6b4099cfc6ea60df525
   - enabled: 1
     path: Assets/ShootinScene.unity
     guid: 9291fd9fb56a2014c9721e069c5d89ba
   - enabled: 1
+    path: Assets/RoadOpening.unity
+    guid: d942f23922edee243857c725cdd76217
+  - enabled: 1
     path: Assets/RoadScene.unity
     guid: 9e4f17239c662b94fbada0e9d748b12f
   - enabled: 1
-    path: Assets/RouletteScene.unity
-    guid: c2d953cef6cd9a245a76b1ba454da9e7
-  - enabled: 1
-    path: Assets/CounterScene.unity
-    guid: ea78d93b63b63bd4a978b8af4ae247b6
-  - enabled: 1
-    path: Assets/TigerScene.unity
-    guid: cdba1492b04b14f4c8bd28c90c0c9c7d
+    path: Assets/RandomOpening.unity
+    guid: 225e42cb8ebbf794d9837261f4dfce1e
   - enabled: 1
     path: Assets/RandomScene.unity
     guid: 2365958ceb7d6fd4081f88c8ab5214e5
   - enabled: 1
+    path: Assets/RunningOpening.unity
+    guid: ebb1dc29f92b0384793651ae939994dc
+  - enabled: 1
     path: Assets/RunningScene.unity
     guid: b738fa0a54024b74ba143f13aa7492f1
   - enabled: 1
-    path: Assets/Opening.unity
-    guid: 53578db17b7d1aa4c88fb7bbbe9e1e9a
+    path: Assets/UpDownOpening.unity
+    guid: 3624528b20974014a9ded77600bb25e1
   - enabled: 1
     path: Assets/UpDownScene.unity
     guid: 70b3c55b161fb7543a001544f01e98c4
+  - enabled: 1
+    path: Assets/TigerScene.unity
+    guid: cdba1492b04b14f4c8bd28c90c0c9c7d
+  - enabled: 1
+    path: Assets/CounterScene.unity
+    guid: ea78d93b63b63bd4a978b8af4ae247b6
+  - enabled: 1
+    path: Assets/GameOver.unity
+    guid: 89a611be1c648fe478f714f41ff85185
+  - enabled: 1
+    path: Assets/GameEnding.unity
+    guid: 563d3f2c0b2beec40ace759a55260fb6
+  - enabled: 1
+    path: Assets/Ending.unity
+    guid: 83245a370859ed74288c76231631005f
   m_configObjects: {}

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CricleController : MonoBehaviour
 {
@@ -38,13 +39,14 @@ public class CricleController : MonoBehaviour
         if (this.speed < 0.00001 && this.speed != 0)
         {
             this.speed = 0;
-            if(transform.position.x > 10){
+            if (transform.position.x > 10)
+            {
                 transform.localPosition = new Vector3(start, 0, 0);
                 int px = Random.Range(0, 7);
                 this.line.transform.position = new Vector3(px, 0, 0);
                 Debug.Log("실패");
             }
-            else if(length > 0)
+            else if (length > 0)
             {
                 transform.localPosition = new Vector3(start, 0, 0);
                 int px = Random.Range(0, 7);
@@ -53,7 +55,7 @@ public class CricleController : MonoBehaviour
             }
             else
             {
-                Debug.Log("성공");
+                SceneManager.LoadScene("GameEnding");
             }
         }
     }

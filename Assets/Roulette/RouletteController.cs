@@ -10,6 +10,7 @@ public class RouletteController : MonoBehaviour
     float degree = 0;
     bool stop;
     bool first;
+    bool change;
     public string[] shop = new string[3];
     public int count = 0;
     int number = 0;
@@ -19,6 +20,7 @@ public class RouletteController : MonoBehaviour
     {
         this.stop = false;
         this.first = false;
+        this.change = false;
         this.count = 3;
     }
 
@@ -57,6 +59,10 @@ public class RouletteController : MonoBehaviour
                 this.shop[number] = "당근";
                 this.number++;
                 this.count--;
+                if(this.count == 0)
+                {
+                    this.change = true;
+                }
             }
             else if (this.degree >= 30 && this.degree < 90)
             {
@@ -66,6 +72,10 @@ public class RouletteController : MonoBehaviour
                 this.shop[number] = "고기";
                 this.number++;
                 this.count--;
+                if (this.count == 0)
+                {
+                    this.change = true;
+                }
             }
             else if (this.degree >= 90 && this.degree < 150)
             {
@@ -75,6 +85,10 @@ public class RouletteController : MonoBehaviour
                 this.shop[number] = "감자";
                 this.number++;
                 this.count--;
+                if (this.count == 0)
+                {
+                    this.change = true;
+                }
             }
             else if (this.degree >= 150 && this.degree < 210)
             {
@@ -84,6 +98,10 @@ public class RouletteController : MonoBehaviour
                 this.shop[number] = "계란";
                 this.number++;
                 this.count--;
+                if (this.count == 0)
+                {
+                    this.change = true;
+                }
             }
             else if (this.degree >= 210 && this.degree < 270)
             {
@@ -93,6 +111,10 @@ public class RouletteController : MonoBehaviour
                 this.shop[number] = "양파";
                 this.number++;
                 this.count--;
+                if (this.count == 0)
+                {
+                    this.change = true;
+                }
             }
             else if (this.degree >= 270 && this.degree < 330)
             {
@@ -102,12 +124,15 @@ public class RouletteController : MonoBehaviour
                 this.shop[number] = "고추";
                 this.number++;
                 this.count--;
+                if (this.count == 0)
+                {
+                    this.change = true;
+                }
             }
         }
 
-        if(this.count == 0)
+        if(this.change == true)
         {
-            count = -1;
             SceneManager.LoadScene("MainScene");
             DontDestroyOnLoad(gameObject);
         }

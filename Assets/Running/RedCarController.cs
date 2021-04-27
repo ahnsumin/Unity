@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class RedCarController : MonoBehaviour
 {
@@ -22,5 +23,6 @@ public class RedCarController : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log("Win");
+        SceneManager.LoadScene("GameEnding");
     }
 }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class RamdomPlayerController : MonoBehaviour
 {
@@ -60,8 +61,8 @@ public class RamdomPlayerController : MonoBehaviour
     {
         if(other.gameObject.tag == "water")
         {
-            //Destroy(gameObject);
             Debug.Log("¾ð´õ´õ¾¾");
+            SceneManager.LoadScene("GameOver");
         }
         else
         {
