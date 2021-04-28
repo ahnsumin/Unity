@@ -23,6 +23,13 @@ public class RedCarController : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log("Win");
+        RabbitController.sceneNum = 4;
         SceneManager.LoadScene("GameEnding");
+        DontDestroyOnLoad(GameObject.Find("MainTime"));
+
+        if (SceneManager.GetActiveScene().name == "GameEnding")
+        {
+            Destroy(GameObject.Find("Maintime"));
+        }
     }
 }

@@ -8,5 +8,11 @@ public class RunningStart : MonoBehaviour
     public void OnClickLoad()
     {
         SceneManager.LoadScene("RunningScene");
+        DontDestroyOnLoad(GameObject.Find("MainTime"));
+
+        if (SceneManager.GetActiveScene().name == "RunningScene")
+        {
+            Destroy(GameObject.Find("Maintime"));
+        }
     }
 }

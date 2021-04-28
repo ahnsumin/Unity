@@ -8,6 +8,10 @@ public class GoHomeButton : MonoBehaviour
     // Start is called before the first frame update
     public void OnClickLoad()
     {
-        SceneManager.LoadScene("Opening");
+        #if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+        #else
+            Application.Quit();
+        #endif
     }
 }

@@ -56,5 +56,11 @@ public class RabbitCounterController : MonoBehaviour
     {
         Debug.Log("°è»ê");
         SceneManager.LoadScene("Ending");
+        DontDestroyOnLoad(GameObject.Find("MainTime"));
+
+        if (SceneManager.GetActiveScene().name == "Ending")
+        {
+            Destroy(GameObject.Find("Maintime"));
+        }
     }
 }

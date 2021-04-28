@@ -8,5 +8,11 @@ public class RandomStart : MonoBehaviour
     public void OnClickLoad()
     {
         SceneManager.LoadScene("RandomScene");
+        DontDestroyOnLoad(GameObject.Find("MainTime"));
+
+        if (SceneManager.GetActiveScene().name == "RandomScene")
+        {
+            Destroy(GameObject.Find("Maintime"));
+        }
     }
 }

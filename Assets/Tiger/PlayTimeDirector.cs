@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayTimeDirector : MonoBehaviour
 {
@@ -18,9 +19,16 @@ public class PlayTimeDirector : MonoBehaviour
     {
         this.playtime.GetComponent<Text>().text = "남은 시간: " + this.LimitTime.ToString("F0") + "초";
 
-        if(this.LimitTime <= 0)
+        if(this.LimitTime < 0)
         {
-            Debug.Log("시간초과");
+            RabbitController.isTiger = true;
+            SceneManager.LoadScene("MainScene");
+            DontDestroyOnLoad(GameObject.Find("MainTime"));
+
+            if (SceneManager.GetActiveScene().name == "MainScene")
+            {
+                Destroy(GameObject.Find("Maintime"));
+            }
         } else
         {
             this.LimitTime -= Time.deltaTime;

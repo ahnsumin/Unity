@@ -63,6 +63,12 @@ public class RamdomPlayerController : MonoBehaviour
         {
             Debug.Log("¾ð´õ´õ¾¾");
             SceneManager.LoadScene("GameOver");
+            DontDestroyOnLoad(GameObject.Find("MainTime"));
+
+            if (SceneManager.GetActiveScene().name == "GameOver")
+            {
+                Destroy(GameObject.Find("Maintime"));
+            }
         }
         else
         {

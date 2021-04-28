@@ -1,13 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class RabbitController : MonoBehaviour
 {
     Rigidbody2D rigid2D;
+
     float walkForce = 30.0f;
     float maxWalkSpeed = 5.0f;
+
     bool counter = false;
     bool carrotScene = false;
     bool eggScene = false;
@@ -15,20 +18,34 @@ public class RabbitController : MonoBehaviour
     bool photatoScene = false;
     bool onionScene = false;
     bool chiliScene = false;
+
     GameObject roulette;
-    string[] shop = new string[3];
+
+    public static int sceneNum;
+
+    public static bool isTiger;
+
+    public static string[] shop = new string[3];
+    public static ArrayList market = new ArrayList();
 
     // Start is called before the first frame update
     void Start()
     {
+        sceneNum = 0;
         this.rigid2D = GetComponent<Rigidbody2D>();
-        this.roulette = GameObject.Find("roulette");
-        for (int i = 0; i < this.shop.Length; i++)
+        if (shop[0] == null)
         {
-            this.shop[i] = this.roulette.GetComponent<RouletteController>().shop[i];
-            Debug.Log(this.shop[i]);
+            this.roulette = GameObject.Find("roulette");
+            for (int i = 0; i < shop.Length; i++)
+            {
+                shop[i] = this.roulette.GetComponent<RouletteController>().shop[i];
+                Debug.Log(shop[i]);
+            }
+            Destroy(this.roulette);
+        } else
+        {
+            Market();
         }
-        Destroy(this.roulette);
     }
 
     // Update is called once per frame
@@ -62,28 +79,20 @@ public class RabbitController : MonoBehaviour
             transform.localScale = new Vector3(key * 0.26058f, 0.26058f, 1);
         }
 
-        if (Input.GetKeyDown(KeyCode.Return) && this.counter == true)
+        if (GameObject.Find("MainTime").GetComponent<MainTime>().limitTime > 0 
+            && GameObject.Find("MainTime").GetComponent<MainTime>().limitTime < 100
+            && isTiger == false)
         {
-            SceneManager.LoadScene("CounterScene");
-        } else if (Input.GetKeyDown(KeyCode.Return) && this.carrotScene == true)
-        {
-            SceneManager.LoadScene("BottleOpening");
-        } else if(Input.GetKeyDown(KeyCode.Return) && this.eggScene == true)
-        {
-            SceneManager.LoadScene("ShootingOpening");
-        } else if (Input.GetKeyDown(KeyCode.Return) && this.meatScene == true)
-        {
-            SceneManager.LoadScene("RandomOpening");
-        } else if (Input.GetKeyDown(KeyCode.Return) && this.photatoScene == true)
-        {
-            SceneManager.LoadScene("RunningOpening");
-        } else if (Input.GetKeyDown(KeyCode.Return) && this.onionScene == true)
-        {
-            SceneManager.LoadScene("RoadOpening");
-        } else if (Input.GetKeyDown(KeyCode.Return) && this.chiliScene == true)
-        {
-            SceneManager.LoadScene("UpDownOpening");
+            SceneManager.LoadScene("TigerScene");
+            DontDestroyOnLoad(GameObject.Find("MainTime"));
+
+            if (SceneManager.GetActiveScene().name == "TigerScene")
+            {
+                Destroy(GameObject.Find("Maintime"));
+            }
         }
+
+        MoveScene();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -157,6 +166,123 @@ public class RabbitController : MonoBehaviour
             this.photatoScene = false;
             this.onionScene = false;
             this.chiliScene = true;
+        }
+    }
+
+    void Market()
+    {
+        if(GameEnding.menu != null)
+        {
+            if (GameEnding.menu == "당근")
+            {
+                market.Add("당근");
+                GameEnding.menu = null;
+                Debug.Log("장바구니");
+            }
+            else if (GameEnding.menu == "계란")
+            {
+                market.Add("계란");
+                GameEnding.menu = null;
+                Debug.Log("장바구니");
+            }
+            else if (GameEnding.menu == "고기")
+            {
+                market.Add("고기");
+                GameEnding.menu = null;
+                Debug.Log("장바구니");
+            }
+            else if (GameEnding.menu == "감자")
+            {
+                market.Add("감자");
+                GameEnding.menu = null;
+                Debug.Log("장바구니");
+            }
+            else if (GameEnding.menu == "양파")
+            {
+                market.Add("양파");
+                GameEnding.menu = null;
+                Debug.Log("장바구니");
+            }
+            else if (GameEnding.menu == "고추")
+            {
+                market.Add("고추");
+                GameEnding.menu = null;
+                Debug.Log("장바구니");
+            }
+        }
+    }
+
+    void MoveScene()
+    {
+        if (Input.GetKeyDown(KeyCode.Return) && this.counter == true)
+        {
+            SceneManager.LoadScene("CounterScene");
+            DontDestroyOnLoad(GameObject.Find("MainTime"));
+
+            if (SceneManager.GetActiveScene().name == "CounterScene")
+            {
+                Destroy(GameObject.Find("Maintime"));
+            }
+        }
+        else if (Input.GetKeyDown(KeyCode.Return) && this.carrotScene == true)
+        {
+            SceneManager.LoadScene("BottleOpening");
+            DontDestroyOnLoad(GameObject.Find("MainTime"));
+
+            if (SceneManager.GetActiveScene().name == "BottleOpening")
+            {
+                Destroy(GameObject.Find("Maintime"));
+            }
+        }
+        else if (Input.GetKeyDown(KeyCode.Return) && this.eggScene == true)
+        {
+            SceneManager.LoadScene("ShootingOpening");
+            DontDestroyOnLoad(GameObject.Find("MainTime"));
+
+            if (SceneManager.GetActiveScene().name == "ShootingOpening")
+            {
+                Destroy(GameObject.Find("Maintime"));
+            }
+        }
+        else if (Input.GetKeyDown(KeyCode.Return) && this.meatScene == true)
+        {
+            SceneManager.LoadScene("RandomOpening");
+            DontDestroyOnLoad(GameObject.Find("MainTime"));
+
+            if (SceneManager.GetActiveScene().name == "RandomOpening")
+            {
+                Destroy(GameObject.Find("Maintime"));
+            }
+        }
+        else if (Input.GetKeyDown(KeyCode.Return) && this.photatoScene == true)
+        {
+            SceneManager.LoadScene("RunningOpening");
+            DontDestroyOnLoad(GameObject.Find("MainTime"));
+
+            if (SceneManager.GetActiveScene().name == "RunningOpening")
+            {
+                Destroy(GameObject.Find("Maintime"));
+            }
+        }
+        else if (Input.GetKeyDown(KeyCode.Return) && this.onionScene == true)
+        {
+            SceneManager.LoadScene("RoadOpening");
+            DontDestroyOnLoad(GameObject.Find("MainTime"));
+
+            if (SceneManager.GetActiveScene().name == "RoadOpening")
+            {
+                Destroy(GameObject.Find("Maintime"));
+            }
+        }
+        else if (Input.GetKeyDown(KeyCode.Return) && this.chiliScene == true)
+        {
+            SceneManager.LoadScene("UpDownOpening");
+            DontDestroyOnLoad(GameObject.Find("MainTime"));
+
+            if (SceneManager.GetActiveScene().name == "UpDownOpening")
+            {
+                Destroy(GameObject.Find("Maintime"));
+            }
         }
     }
 }

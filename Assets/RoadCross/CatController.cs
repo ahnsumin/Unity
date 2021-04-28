@@ -51,11 +51,24 @@ public class CatController : MonoBehaviour
         {
             Debug.Log("게임오버");
             SceneManager.LoadScene("GameOver");
+            DontDestroyOnLoad(GameObject.Find("MainTime"));
+
+            if (SceneManager.GetActiveScene().name == "GameOver")
+            {
+                Destroy(GameObject.Find("Maintime"));
+            }
         }
         if(other.gameObject.tag == "ending")
         {
             Debug.Log("성공");
+            RabbitController.sceneNum = 5;
             SceneManager.LoadScene("GameEnding");
+            DontDestroyOnLoad(GameObject.Find("MainTime"));
+
+            if (SceneManager.GetActiveScene().name == "GameEnding")
+            {
+                Destroy(GameObject.Find("Maintime"));
+            }
         }
     }
 }

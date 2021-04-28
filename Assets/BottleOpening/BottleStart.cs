@@ -9,5 +9,11 @@ public class BottleStart : MonoBehaviour
     public void OnClickLoad()
     {
         SceneManager.LoadScene("BottleScene");
+        DontDestroyOnLoad(GameObject.Find("MainTime"));
+
+        if (SceneManager.GetActiveScene().name == "BottleScene")
+        {
+            Destroy(GameObject.Find("Maintime"));
+        }
     }
 }

@@ -22,5 +22,11 @@ public class BlueCarController : MonoBehaviour
         Debug.Log("Lose");
         Destroy(gameObject);
         SceneManager.LoadScene("GameOver");
+        DontDestroyOnLoad(GameObject.Find("MainTime"));
+
+        if (SceneManager.GetActiveScene().name == "GameOver")
+        {
+            Destroy(GameObject.Find("Maintime"));
+        }
     }
 }

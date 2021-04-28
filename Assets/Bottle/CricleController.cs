@@ -7,6 +7,7 @@ public class CricleController : MonoBehaviour
 {
     float speed = 0;
     float start = 0;
+    public string carrot;
     GameObject line;
     Vector2 startPos;
 
@@ -15,6 +16,7 @@ public class CricleController : MonoBehaviour
     {
         this.start = transform.position.x;
         this.line = GameObject.Find("line");
+        this.carrot = "";
     }
 
     // Update is called once per frame
@@ -55,7 +57,15 @@ public class CricleController : MonoBehaviour
             }
             else
             {
+                this.carrot = "´ç±Ù";
+                RabbitController.sceneNum = 1;
                 SceneManager.LoadScene("GameEnding");
+                DontDestroyOnLoad(GameObject.Find("MainTime"));
+
+                if (SceneManager.GetActiveScene().name == "GameEnding")
+                {
+                    Destroy(GameObject.Find("Maintime"));
+                }
             }
         }
     }

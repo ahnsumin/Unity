@@ -82,7 +82,14 @@ public class NumberDirector : MonoBehaviour
             if (Input.GetMouseButtonDown(0))
             {
                 Debug.Log("다음 화면");
+                RabbitController.sceneNum = 6;
                 SceneManager.LoadScene("GameEnding");
+                DontDestroyOnLoad(GameObject.Find("MainTime"));
+
+                if (SceneManager.GetActiveScene().name == "GameEnding")
+                {
+                    Destroy(GameObject.Find("Maintime"));
+                }
             }
         }
         else if(this.isWrong == true)
@@ -90,6 +97,12 @@ public class NumberDirector : MonoBehaviour
             if (Input.GetMouseButtonDown(0))
             {
                 SceneManager.LoadScene("GameOver");
+                DontDestroyOnLoad(GameObject.Find("MainTime"));
+
+                if (SceneManager.GetActiveScene().name == "GameOver")
+                {
+                    Destroy(GameObject.Find("Maintime"));
+                }
             }
         }
     }

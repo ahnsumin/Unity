@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TigerController : MonoBehaviour
 {
     GameObject rabbit;
+    public static bool isDead;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,7 +32,14 @@ public class TigerController : MonoBehaviour
 
         if(d < r1 + r2)
         {
-            Destroy(gameObject);
+            isDead = true;
+            SceneManager.LoadScene("Ending");
+            DontDestroyOnLoad(GameObject.Find("MainTime"));
+
+            if (SceneManager.GetActiveScene().name == "Ending")
+            {
+                Destroy(GameObject.Find("Maintime"));
+            }
         }
     }
 }

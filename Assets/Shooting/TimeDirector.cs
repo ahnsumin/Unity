@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class TimeDirector : MonoBehaviour
 {
     public float LimitTime;
+    public string egg;
     GameObject timer;
     
     // Start is called before the first frame update
@@ -27,9 +28,25 @@ public class TimeDirector : MonoBehaviour
         if (LimitTime <= 0 && filled == false)
         {
             SceneManager.LoadScene("GameOver");
+            Destroy(gameObject);
+            DontDestroyOnLoad(GameObject.Find("MainTime"));
+
+            if (SceneManager.GetActiveScene().name == "GameOver")
+            {
+                Destroy(GameObject.Find("Maintime"));
+            }
         } else if(LimitTime > 0 && filled == true)
         {
+            this.egg = "°è¶õ";
+            RabbitController.sceneNum = 2;
+            Debug.Log(this.egg);
             SceneManager.LoadScene("GameEnding");
+            DontDestroyOnLoad(GameObject.Find("MainTime"));
+
+            if (SceneManager.GetActiveScene().name == "GameEnding")
+            {
+                Destroy(GameObject.Find("Maintime"));
+            }
         }
     }
 }

@@ -9,5 +9,11 @@ public class ShootingStart : MonoBehaviour
     public void OnClickLoad()
     {
         SceneManager.LoadScene("ShootinScene");
+        DontDestroyOnLoad(GameObject.Find("MainTime"));
+
+        if (SceneManager.GetActiveScene().name == "ShootinScene")
+        {
+            Destroy(GameObject.Find("Maintime"));
+        }
     }
 }
